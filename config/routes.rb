@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :swaps
+  resources :items
   scope :api do
     resources :users, except: [:create]
 
