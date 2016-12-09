@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
+  scope :api do
+    
   resources :swaps
   resources :items
-  scope :api do
-    resources :users, except: [:create]
+  resources :users, except: [:create]
 
     post 'register', to: 'auth#register'
     post 'login', to: 'auth#login'
