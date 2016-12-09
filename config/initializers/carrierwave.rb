@@ -8,7 +8,7 @@ CarrierWave.configure do |config|
   }
 
   if Rails.env.production?
-    config.route = Rails.route.join('tmp')
+    config.root = Rails.route.join('tmp')
     config.cache_dir = "#{Rails.route}/temp/uploads"
   end
 
