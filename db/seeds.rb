@@ -10,7 +10,7 @@
   ActiveRecord::Base.connection.execute("TRUNCATE #{table_name} RESTART IDENTITY CASCADE")
 end
 
-mike = User.create!({
+mike = User.create!(
   username: "mickyginger",
   email: "mike.hayden@ga.co",
   password: "password",
@@ -20,8 +20,8 @@ mike = User.create!({
   bio: "blablabla",
   dress_size: "TBC",
   shoe_size: "9?"
-})
-puts "#{mike.username} was created"
+)
+# puts "#{mike.username} was created"
 emily = User.create!(
   username: "emilyi",
   email: "emily.i@ga.co",
@@ -49,7 +49,7 @@ reiss_dress = Item.create!(
   condition: "near new",
   size: "UK 10"
 )
-puts "#{reiss_dress.description} was added to the pile"
+# puts "#{reiss_dress.description} was added to the pile"
 grey_jumpsuit = Item.create!(
 user_id: emily.id,
 image: File.open(File.join(Rails.root, "db/images/grey-jumpsuit.jpg")),
