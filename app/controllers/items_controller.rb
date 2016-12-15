@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :update, :destroy]
+  skip_before_action :authenticate_user!, except: [:update, :create, :destroy]
 
   # GET /items
   def index
@@ -15,7 +16,8 @@ class ItemsController < ApplicationController
 
   # POST /items
   def create
-    @item = Item.new(item_params)
+    # @item = Item.new(item_params)
+    @item = Item.new(Uploader.upload(item_params))
 
     if @item.save
       render json: @item, status: :created, location: @item
@@ -46,6 +48,6 @@ class ItemsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def item_params
-      params.require(:item).permit(:image, :description, :condition, :size, :user_id)
+      params.permit(:image, :description, :condition, :size, :user_id, :base64)
     end
 end
