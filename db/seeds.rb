@@ -34,7 +34,7 @@ emily = User.create!(
 )
 natalie = User.create!(
   username: "nataliemp28",
-  email: "natalie@ga.co",
+  email: "nat@test.com",
   password: "password",
   password_confirmation: "password",
   image: File.open(File.join(Rails.root, "db/images/natalie.jpg")),
